@@ -1,1 +1,5 @@
+# Don't track content of these folders
 /.idea
+
+# Don't track content this files
+database.php
