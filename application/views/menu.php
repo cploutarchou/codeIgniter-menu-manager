@@ -23,7 +23,7 @@
             <header>
                 <h1><a href="<?php echo site_url(); ?>">Easy Menu Manager</a></h1>
                 <div id="link">
-                    <a class="button red" href="<?php echo base_url() ?>menu_manager/sample" target="_blank">Preview
+                    <a class="button red" href="<?php echo base_url() ?>menu/sample" target="_blank">Preview
                         Menu</a>
                 </div>
             </header>
