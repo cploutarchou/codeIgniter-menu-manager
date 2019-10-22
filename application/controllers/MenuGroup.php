@@ -2,13 +2,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Menu_group extends CI_Controller {
+class MenuGroup extends CI_Controller
+{
 
     function __construct() {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('my_helper');
-        $this->load->model('menu_Model');
+        $this->load->model('Menu_model');
     }
 
     public function index() {
@@ -47,7 +48,7 @@ class Menu_group extends CI_Controller {
         if ($title) {
             $data['title'] = $title;
             $response['success'] = false;
-            $res = $this->menu_Model->update_menu_group($data, $id);
+            $res = $this->Menu_model->update_menu_group($data, $id);
             if ($res) {
                 $response['success'] = true;
             }
@@ -63,9 +64,9 @@ class Menu_group extends CI_Controller {
                 $response['success'] = false;
                 $response['msg'] = 'Cannot delete Group ID = 1';
             } else {
-                $delete = $this->menu_Model->delete_menu_group($id);
+                $delete = $this->Menu_model->delete_menu_group($id);
                 if ($delete) {
-                    $del = $this->menu_Model->delete_menus($id);
+                    $del = $this->Menu_model->delete_menus($id);
                     $response['success'] = true;
                 } else {
                     $response['success'] = false;

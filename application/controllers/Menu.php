@@ -2,55 +2,60 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Menu_controller extends CI_Controller {
+class Menu extends CI_Controller
+{
 
-    function __construct() {
+
+    function __construct()
+    {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('menu_Model');
+        $this->load->model('Menu_model');
         $this->load->helper('my_helper');
     }
 
     /**
      * Show menu manager
      */
-    public function index() {
+    public function index()
+    {
         $group_id = 1;
-        $menu = $this->menu_Model->get_menu($group_id);
+        $menu = $this->Menu_model->get_menu($group_id);
         $data['menu_ul'] = '<ul id="easymm"></ul>';
         if ($menu) {
             foreach ($menu as $row) {
                 $this->add_row(
-                        $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable"', $this->get_label($row)
+                    $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable"', $this->get_label($row)
                 );
             }
 
             $data['menu_ul'] = $this->generate_list('id="easymm"');
         }
         $data['group_id'] = $group_id;
-        $data['group_title'] = $this->menu_Model->get_menu_group_title($group_id);
-        $data['menu_groups'] = $this->menu_Model->get_menu_groups();
+        $data['group_title'] = $this->Menu_model->get_menu_group_title($group_id);
+        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
         $this->load->view('menu', $data);
     }
 
     /**
      * Show menu pages
      */
-    public function menu($group_id) {
-        $menu = $this->menu_Model->get_menu($group_id);
+    public function menu($group_id)
+    {
+        $menu = $this->Menu_Model->get_menu($group_id);
         $data['menu_ul'] = '<ul id="easymm"></ul>';
         if ($menu) {
             foreach ($menu as $row) {
                 $this->add_row(
-                        $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable"', $this->get_label($row)
+                    $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable"', $this->get_label($row)
                 );
             }
 
             $data['menu_ul'] = $this->generate_list('id="easymm"');
         }
         $data['group_id'] = $group_id;
-        $data['group_title'] = $this->menu_Model->get_menu_group_title($group_id);
-        $data['menu_groups'] = $this->menu_Model->get_menu_groups();
+        $data['group_title'] = $this->Menu_model->get_menu_group_title($group_id);
+        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
         $this->load->view('menu', $data);
     }
 
@@ -60,7 +65,8 @@ class Menu_controller extends CI_Controller {
      * @param string $ul_attr
      * @return string
      */
-    function generate_list($ul_attr = '') {
+    function generate_list($ul_attr = '')
+    {
         return $this->ul(0, $ul_attr);
     }
 
@@ -71,7 +77,8 @@ class Menu_controller extends CI_Controller {
      * @param string $attr
      * @return string
      */
-    function ul($parent = 0, $attr = '') {
+    function ul($parent = 0, $attr = '')
+    {
         static $i = 1;
         $indent = str_repeat("\t\t", $i);
         if (isset($this->data[$parent])) {
@@ -100,7 +107,8 @@ class Menu_controller extends CI_Controller {
         }
     }
 
-    function add_row($id, $parent, $li_attr, $label) {
+    function add_row($id, $parent, $li_attr, $label)
+    {
         $this->data[$parent][] = array('id' => $id, 'li_attr' => $li_attr, 'label' => $label);
     }
 
@@ -109,7 +117,8 @@ class Menu_controller extends CI_Controller {
      * For use with ajax
      * Return json data
      */
-    public function add() {
+    public function add()
+    {
         $title = $this->input->post('title');
         if ($title) {
             $data['title'] = $this->input->post('title');
@@ -135,13 +144,15 @@ class Menu_controller extends CI_Controller {
         }
     }
 
-    public function edit($id) {
-        $data['row'] = $this->menu_Model->get_row($id);
-        $data['menu_groups'] = $this->menu_Model->get_menu_groups();
+    public function edit($id)
+    {
+        $data['row'] = $this->Menu_Model->get_row($id);
+        $data['menu_groups'] = $this->Menu_Model->get_menu_groups();
         $this->load->view('menu_edit', $data);
     }
 
-    public function save() {
+    public function save()
+    {
         $title = $this->input->post('title');
         if ($title) {
             $data['title'] = trim($_POST['title']);
@@ -159,7 +170,7 @@ class Menu_controller extends CI_Controller {
                     //if group changed
                     if ($group_id != $old_group_id) {
                         $data['group_id'] = $group_id;
-                        $data['position'] = $this->menu_Model->get_last_position($group_id);
+                        $data['position'] = $this->Menu_Model->get_last_position($group_id);
                         $item_moved = true;
                     }
                 }
@@ -167,7 +178,7 @@ class Menu_controller extends CI_Controller {
                 if ($this->db->update('menu', $data, 'id' . ' = ' . $data['id'])) {
                     if ($item_moved) {
                         //move sub items
-                        $ids = $this->menu_Model->get_descendants($data['id']);
+                        $ids = $this->Menu_Model->get_descendants($data['id']);
                         if (!empty($ids)) {
                             $sql = sprintf('UPDATE %s SET %s = %s WHERE %s IN (%s)', 'menu', 'group_id', $group_id, 'id', $ids);
                             $update_sub = $this->db->Execute($sql);
@@ -192,16 +203,17 @@ class Menu_controller extends CI_Controller {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
         $id = $this->input->post('id');
         if ($id) {
-            $this->menu_Model->get_descendants($id);
+            $this->Menu_Model->get_descendants($id);
             if (!empty($this->ids)) {
                 $ids = implode(', ', $this->ids);
                 $id = "$id, $ids";
             }
 
-            $res = $this->menu_Model->delete_menu($id);
+            $res = $this->Menu_Model->delete_menu($id);
             if ($res) {
                 $response['success'] = true;
             } else {
@@ -215,7 +227,8 @@ class Menu_controller extends CI_Controller {
     /**
      * new save position method
      */
-    public function save_position() {
+    public function save_position()
+    {
         $menu = $this->input->post('menu');
         if (!empty($menu)) {
             //adodb_pr($menu);
@@ -244,17 +257,19 @@ class Menu_controller extends CI_Controller {
         }
     }
 
-    public function old_save_position() {
+    public function old_save_position()
+    {
         if (isset($_POST['easymm'])) {
             $easymm = $_POST['easymm'];
             $this->update_position(0, $easymm);
         }
     }
 
-    private function update_position($parent, $children) {
+    private function update_position($parent, $children)
+    {
         $i = 1;
         foreach ($children as $k => $v) {
-            $id = (int) $children[$k]['id'];
+            $id = (int)$children[$k]['id'];
             $data[MENU_PARENT] = $parent;
             $data[MENU_POSITION] = $i;
             $this->db->update(MENU_TABLE, $data, MENU_ID . ' = ' . $id);
@@ -272,43 +287,46 @@ class Menu_controller extends CI_Controller {
      * @param array $row
      * @return string
      */
-    private function get_label($row) {
+    private function get_label($row)
+    {
         $label = '<div class="ns-row">' .
-                '<div class="ns-title">' . $row->title . '</div>' .
-                '<div class="ns-url">' . $row->url . '</div>' .
-                '<div class="ns-class">' . $row->class . '</div>' .
-                '<div class="ns-actions">' .
-                '<a href="#" class="edit-menu" title="Edit">' .
-                '<img src="' . base_url() . 'assets/images/edit.png" alt="Edit">' .
-                '</a>' .
-                '<a href="#" class="delete-menu" title="Delete">' .
-                '<img src="' . base_url() . 'assets/images/cross.png" alt="Delete">' .
-                '</a>' .
-                '<input type="hidden" name="menu_id" value="' . $row->id . '">' .
-                '</div>' .
-                '</div>';
+            '<div class="ns-title">' . $row->title . '</div>' .
+            '<div class="ns-url">' . $row->url . '</div>' .
+            '<div class="ns-class">' . $row->class . '</div>' .
+            '<div class="ns-actions">' .
+            '<a href="#" class="edit-menu" title="Edit">' .
+            '<img src="' . base_url() . 'assets/images/edit.png" alt="Edit">' .
+            '</a>' .
+            '<a href="#" class="delete-menu" title="Delete">' .
+            '<img src="' . base_url() . 'assets/images/cross.png" alt="Delete">' .
+            '</a>' .
+            '<input type="hidden" name="menu_id" value="' . $row->id . '">' .
+            '</div>' .
+            '</div>';
         return $label;
     }
 
-    private function get_labels($row) {
+    private function get_labels($row)
+    {
         $label = '<div class="ns-row">' .
-                '<div class="ns-title">' . $row['title'] . '</div>' .
-                '<div class="ns-url">' . $row['url'] . '</div>' .
-                '<div class="ns-class">' . $row['class'] . '</div>' .
-                '<div class="ns-actions">' .
-                '<a href="#" class="edit-menu" title="Edit">' .
-                '<img src="' . base_url() . 'assets/images/edit.png" alt="Edit">' .
-                '</a>' .
-                '<a href="#" class="delete-menu" title="Delete">' .
-                '<img src="' . base_url() . 'assets/images/cross.png" alt="Delete">' .
-                '</a>' .
-                '<input type="hidden" name="menu_id" value="' . $row['id'] . '">' .
-                '</div>' .
-                '</div>';
+            '<div class="ns-title">' . $row['title'] . '</div>' .
+            '<div class="ns-url">' . $row['url'] . '</div>' .
+            '<div class="ns-class">' . $row['class'] . '</div>' .
+            '<div class="ns-actions">' .
+            '<a href="#" class="edit-menu" title="Edit">' .
+            '<img src="' . base_url() . 'assets/images/edit.png" alt="Edit">' .
+            '</a>' .
+            '<a href="#" class="delete-menu" title="Delete">' .
+            '<img src="' . base_url() . 'assets/images/cross.png" alt="Delete">' .
+            '</a>' .
+            '<input type="hidden" name="menu_id" value="' . $row['id'] . '">' .
+            '</div>' .
+            '</div>';
         return $label;
     }
 
-    public function sample() {
+    public function sample()
+    {
         $this->load->view('sample');
     }
 

@@ -1,6 +1,7 @@
 <?php
 
-class menu_Model extends CI_Model {
+class Menu_model extends CI_Model
+{
 
     public function get_menu($group_id) {
         $query = $this->db->select('*')
