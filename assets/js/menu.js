@@ -175,7 +175,7 @@ jQuery(function($) {
 		var param = { id : $(this).next().val() };
 		var menu_title = $(this).parent().parent().children('.ns-title').text();
 		gbox.show({
-			content: '<h2>Delete Menu Item</h2>Are you sure you want to delete this menu item?<br><b>'
+            content: '<h2>Delete MenuController Item</h2>Are you sure you want to delete this menu item?<br><b>'
 				+ menu_title +
 				'</b><br><br>This will also delete all sub items.',
 			buttons: {
@@ -312,7 +312,7 @@ jQuery(function($) {
 			},
 			success: function(data) {
 				gbox.show({
-					content: '<h2>Success</h2>Menu has been saved',
+                    content: '<h2>Success</h2>MenuController has been saved',
 					autohide: 1000
 				});
 			}
@@ -358,7 +358,7 @@ jQuery(function($) {
 		var group_title = $('#menu-group li.current a').text();
 		var param = { id : current_group_id };
 		gbox.show({
-			content: '<h2>Delete Menu</h2>Are you sure you want to delete this menu?<br><b>'
+            content: '<h2>Delete MenuController</h2>Are you sure you want to delete this menu?<br><b>'
 				+ group_title +
 				'</b><br><br>This will also delete all items under this menu.',
 			buttons: {

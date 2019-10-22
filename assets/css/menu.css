@@ -1,4 +1,4 @@
-/* Horizontal Dropdown Menu
+/* Horizontal Dropdown MenuController
 -----------------------------------*/
 .horizontal, .horizontal ul {
     list-style: none;
@@ -203,7 +203,7 @@
 }
 
 
-/* Vertical Dropdown Menu
+/* Vertical Dropdown MenuController
 -----------------------------------*/
 .vertical, .vertical ul {
     list-style: none;

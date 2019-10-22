@@ -42,7 +42,8 @@ class Menu extends CI_Controller
      */
     public function menu($group_id)
     {
-        $menu = $this->Menu_Model->get_menu($group_id);
+        $menu = $this->Menu_model->get_menu($group_id);
+//        echo "<pre>".print_r($menu,true);die();
         $data['menu_ul'] = '<ul id="easymm"></ul>';
         if ($menu) {
             foreach ($menu as $row) {
@@ -146,8 +147,8 @@ class Menu extends CI_Controller
 
     public function edit($id)
     {
-        $data['row'] = $this->Menu_Model->get_row($id);
-        $data['menu_groups'] = $this->Menu_Model->get_menu_groups();
+        $data['row'] = $this->Menu_model->get_row($id);
+        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
         $this->load->view('menu_edit', $data);
     }
 
@@ -170,7 +171,7 @@ class Menu extends CI_Controller
                     //if group changed
                     if ($group_id != $old_group_id) {
                         $data['group_id'] = $group_id;
-                        $data['position'] = $this->Menu_Model->get_last_position($group_id);
+                        $data['position'] = $this->Menu_model->get_last_position($group_id);
                         $item_moved = true;
                     }
                 }
@@ -178,7 +179,7 @@ class Menu extends CI_Controller
                 if ($this->db->update('menu', $data, 'id' . ' = ' . $data['id'])) {
                     if ($item_moved) {
                         //move sub items
-                        $ids = $this->Menu_Model->get_descendants($data['id']);
+                        $ids = $this->Menu_model->get_descendants($data['id']);
                         if (!empty($ids)) {
                             $sql = sprintf('UPDATE %s SET %s = %s WHERE %s IN (%s)', 'menu', 'group_id', $group_id, 'id', $ids);
                             $update_sub = $this->db->Execute($sql);
@@ -207,13 +208,13 @@ class Menu extends CI_Controller
     {
         $id = $this->input->post('id');
         if ($id) {
-            $this->Menu_Model->get_descendants($id);
+            $this->Menu_model->get_descendants($id);
             if (!empty($this->ids)) {
                 $ids = implode(', ', $this->ids);
                 $id = "$id, $ids";
             }
 
-            $res = $this->Menu_Model->delete_menu($id);
+            $res = $this->Menu_model->delete_menu($id);
             if ($res) {
                 $response['success'] = true;
             } else {

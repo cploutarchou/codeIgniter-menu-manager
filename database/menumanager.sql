@@ -102,10 +102,10 @@ CREATE TABLE `menu_group` (
 --
 
 INSERT INTO `menu_group` (`id`, `title`) VALUES
-(1, 'Main Menu'),
-(2, 'Footer Menu'),
-(3, 'Member Menu'),
-(4, 'Admin Menu');
+(1, 'Main MenuController'),
+(2, 'Footer MenuController'),
+(3, 'Member MenuController'),
+(4, 'Admin MenuController');
 
 --
 -- Indexes for dumped tables

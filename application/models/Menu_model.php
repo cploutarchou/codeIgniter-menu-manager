@@ -105,14 +105,14 @@ class Menu_model extends CI_Model
         return $this->db->delete('menu');
     }
 
-//Update Menu Group
+//Update MenuController Group
     public function update_menu_group($data, $id) {
         if ($this->db->update('menu_group', $data, 'id' . ' = ' . $id)) {
             return true;
         }
     }
 
-//Delete Menu Group
+//Delete MenuController Group
     public function delete_menu_group($id) {
         $this->db->where('id', $id);
         return $this->db->delete('menu_group');

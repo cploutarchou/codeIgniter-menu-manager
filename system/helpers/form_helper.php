@@ -353,7 +353,7 @@ if ( ! function_exists('form_multiselect'))
 if ( ! function_exists('form_dropdown'))
 {
 	/**
-	 * Drop-down Menu
+     * Drop-down MenuController
 	 *
 	 * @param	mixed	$data
 	 * @param	mixed	$options

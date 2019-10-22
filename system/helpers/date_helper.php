@@ -559,7 +559,7 @@ if ( ! function_exists('nice_date'))
 if ( ! function_exists('timezone_menu'))
 {
 	/**
-	 * Timezone Menu
+     * Timezone MenuController
 	 *
 	 * Generates a drop-down menu of timezones.
 	 *

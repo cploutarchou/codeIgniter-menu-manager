@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MenuGroup extends CI_Controller
+class Menugroup extends CI_Controller
 {
 
     function __construct() {
