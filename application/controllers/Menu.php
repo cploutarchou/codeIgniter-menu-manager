@@ -10,7 +10,7 @@ class Menu extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('Menu_model');
+        $this->load->model('Menu_model', 'manager');
         $this->load->helper('my_helper');
     }
 
@@ -20,7 +20,7 @@ class Menu extends CI_Controller
     public function index()
     {
         $group_id = 1;
-        $menu = $this->Menu_model->get_menu($group_id);
+        $menu = $this->manager->get_menu($group_id);
         $data['menu_ul'] = '<ul id="easymm"></ul>';
         if ($menu) {
             foreach ($menu as $row) {
@@ -32,8 +32,8 @@ class Menu extends CI_Controller
             $data['menu_ul'] = $this->generate_list('id="easymm"');
         }
         $data['group_id'] = $group_id;
-        $data['group_title'] = $this->Menu_model->get_menu_group_title($group_id);
-        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
+        $data['group_title'] = $this->manager->get_menu_group_title($group_id);
+        $data['menu_groups'] = $this->manager->get_menu_groups();
         $this->load->view('menu', $data);
     }
 
@@ -42,7 +42,7 @@ class Menu extends CI_Controller
      */
     public function menu($group_id)
     {
-        $menu = $this->Menu_model->get_menu($group_id);
+        $menu = $this->manager->get_menu($group_id);
 //        echo "<pre>".print_r($menu,true);die();
         $data['menu_ul'] = '<ul id="easymm"></ul>';
         if ($menu) {
@@ -55,8 +55,8 @@ class Menu extends CI_Controller
             $data['menu_ul'] = $this->generate_list('id="easymm"');
         }
         $data['group_id'] = $group_id;
-        $data['group_title'] = $this->Menu_model->get_menu_group_title($group_id);
-        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
+        $data['group_title'] = $this->manager->get_menu_group_title($group_id);
+        $data['menu_groups'] = $this->manager->get_menu_groups();
         $this->load->view('menu', $data);
     }
 
@@ -147,8 +147,8 @@ class Menu extends CI_Controller
 
     public function edit($id)
     {
-        $data['row'] = $this->Menu_model->get_row($id);
-        $data['menu_groups'] = $this->Menu_model->get_menu_groups();
+        $data['row'] = $this->manager->get_row($id);
+        $data['menu_groups'] = $this->manager->get_menu_groups();
         $this->load->view('menu_edit', $data);
     }
 
@@ -171,7 +171,7 @@ class Menu extends CI_Controller
                     //if group changed
                     if ($group_id != $old_group_id) {
                         $data['group_id'] = $group_id;
-                        $data['position'] = $this->Menu_model->get_last_position($group_id);
+                        $data['position'] = $this->manager->get_last_position($group_id);
                         $item_moved = true;
                     }
                 }
@@ -179,7 +179,7 @@ class Menu extends CI_Controller
                 if ($this->db->update('menu', $data, 'id' . ' = ' . $data['id'])) {
                     if ($item_moved) {
                         //move sub items
-                        $ids = $this->Menu_model->get_descendants($data['id']);
+                        $ids = $this->manager->get_descendants($data['id']);
                         if (!empty($ids)) {
                             $sql = sprintf('UPDATE %s SET %s = %s WHERE %s IN (%s)', 'menu', 'group_id', $group_id, 'id', $ids);
                             $update_sub = $this->db->Execute($sql);
@@ -208,13 +208,13 @@ class Menu extends CI_Controller
     {
         $id = $this->input->post('id');
         if ($id) {
-            $this->Menu_model->get_descendants($id);
+            $this->manager->get_descendants($id);
             if (!empty($this->ids)) {
                 $ids = implode(', ', $this->ids);
                 $id = "$id, $ids";
             }
 
-            $res = $this->Menu_model->delete_menu($id);
+            $res = $this->manager->delete_menu($id);
             if ($res) {
                 $response['success'] = true;
             } else {
