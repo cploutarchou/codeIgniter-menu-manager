@@ -9,7 +9,7 @@ class Menugroup extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('my_helper');
-        $this->load->model('Menu_model');
+        $this->load->model('Menu_model', 'manager');
     }
 
     public function index() {
@@ -48,7 +48,7 @@ class Menugroup extends CI_Controller
         if ($title) {
             $data['title'] = $title;
             $response['success'] = false;
-            $res = $this->Menu_model->update_menu_group($data, $id);
+            $res = $this->manager->update_menu_group($data, $id);
             if ($res) {
                 $response['success'] = true;
             }
@@ -64,9 +64,9 @@ class Menugroup extends CI_Controller
                 $response['success'] = false;
                 $response['msg'] = 'Cannot delete Group ID = 1';
             } else {
-                $delete = $this->Menu_model->delete_menu_group($id);
+                $delete = $this->manager->delete_menu_group($id);
                 if ($delete) {
-                    $del = $this->Menu_model->delete_menus($id);
+                    $del = $this->manager->delete_menus($id);
                     $response['success'] = true;
                 } else {
                     $response['success'] = false;
