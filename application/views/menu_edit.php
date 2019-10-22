@@ -1,5 +1,5 @@
 <h2>Edit Menu Item</h2>
-<form method="post" action="<?php echo site_url('menu_controller/save'); ?>">
+<form method="post" action="<?php echo site_url('menu/save'); ?>">
     <p>
         <label for="edit-menu-title">Title</label>
         <input type="text" name="title" id="edit-menu-title" value="<?php echo $row->title; ?>">

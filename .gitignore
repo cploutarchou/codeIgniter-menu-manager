@@ -1,5 +1,6 @@
 # Don't track content of these folders
 /.idea
 
-# Ignore File Named 'database.php'
+# Ignore Files
 database.php
+phpstorm.php
