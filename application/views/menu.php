@@ -103,7 +103,7 @@
                 <div class="clear"></div>
             </div>
             <footer>
-                Easy Menu Manager
+                Codeigniter Easy Menu Manager | Created By Christos Ploutarchou | &copy <?php echo date("Y"); ?>
             </footer>
         </div>
         <div id="loading">

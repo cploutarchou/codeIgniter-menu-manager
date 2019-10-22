@@ -259,7 +259,7 @@ jQuery(function($) {
 						//$('#gbox_ok').attr('disabled', true);
 						$.ajax({
 							type: 'POST',
-							url: _BASE_URL + 'menu_group/add',
+							url: _BASE_URL + 'menugroup/add',
 							data: 'title=' + group_title,
 							error: function() {
 								//$('#gbox_ok').attr('disabled', false);
