@@ -335,7 +335,7 @@ jQuery(function($) {
 				}
 				$.ajax({
 					type: 'POST',
-					url: _BASE_URL + 'menu_group/edit',
+                    url: _BASE_URL + 'menugroup/edit',
 					data: 'id=' + current_group_id + '&title=' + title,
 					success: function(data) {
 						if (data.success) {
@@ -363,7 +363,7 @@ jQuery(function($) {
 				'</b><br><br>This will also delete all items under this menu.',
 			buttons: {
 				'Yes': function() {
-					$.post(_BASE_URL + 'menu_group/delete', param, function(data) {
+                    $.post(_BASE_URL + 'menugroup/delete', param, function (data) {
 						if (data.success) {
 							window.location = site_url('menu');
 						} else {
