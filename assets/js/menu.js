@@ -136,7 +136,7 @@ jQuery(function($) {
 		var li = $(this).closest('li');
 		gbox.show({
 			type: 'ajax',
-			url: _BASE_URL + 'menu_controller/edit/'+ menu_id,
+            url: _BASE_URL + 'menu/edit/' + menu_id,
 			buttons: {
 				'Save': function() {
 					$.ajax({
@@ -180,7 +180,7 @@ jQuery(function($) {
 				'</b><br><br>This will also delete all sub items.',
 			buttons: {
 				'Yes': function() {
-					$.post(_BASE_URL + 'menu_controller/delete', param, function(data) {
+                    $.post(_BASE_URL + 'menu/delete', param, function (data) {
 						if (data.success) {
 							gbox.hide();
 							li.remove();
