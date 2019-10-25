@@ -329,9 +329,9 @@ ul#menu-group li.current a {
 	padding: 8px 10px;
 	font-weight: bold;
 	font-size: 14px;
-	color: #555;
-	background: #fff;
-	border: none;
+	color: #fff;
+	background: #616161 !important;
+	border-radius: unset !important;
 }
 #ns-header div {
 	border: none;
@@ -368,8 +368,9 @@ div.ns-title {
 	cursor: move;
 }
 .actions {
-	width: 60px;
-	right: 30px;
+	width: 70px;
+	right: 12px;
+
 }
 .ns-class {
 	width: 100px;
@@ -380,7 +381,8 @@ div.ns-title {
 	right: 300px;
 }
 .actions a {
-	margin-left: 5px;
+	margin-left: 10px;
+	alignment: center;
 }
 
 /* error
