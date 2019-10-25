@@ -372,9 +372,9 @@ div.ns-title {
 	padding-left: 0;
 	cursor: move;
 }
-.ns-actions {
-	width: 50px;
-	right: 10px;
+.actions {
+	width: 60px;
+	right: 30px;
 }
 .ns-class {
 	width: 100px;
@@ -384,7 +384,7 @@ div.ns-title {
 	width: 140px;
 	right: 170px;
 }
-.ns-actions a {
+.actions a {
 	margin-left: 5px;
 }
 

@@ -31,8 +31,7 @@
 
                         <form method="post" id="form-menu" action="<?php echo site_url('menu/save_position'); ?>">
                             <div class="ns-row" id="ns-header">
-                                <div class="ns-actions">Actions</div>
-                                <div class="ns-class">Class</div>
+                                <div class="actions">Actions</div>
                                 <div class="ns-url">URL</div>
                                 <div class="ns-title">Title</div>
                             </div>
