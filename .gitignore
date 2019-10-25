@@ -3,4 +3,4 @@
 
 # Ignore Files
 database.php
-phpstorm.php
+loader.php
