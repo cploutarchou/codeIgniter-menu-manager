@@ -25,7 +25,7 @@ class Menu extends CI_Controller
         if ($menu) {
             foreach ($menu as $row) {
                 $this->add_row(
-                    $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable"', $this->get_label($row)
+                    $row->id, $row->parent_id, ' id="menu-' . $row->id . '" class="sortable "', $this->get_label($row)
                 );
             }
 

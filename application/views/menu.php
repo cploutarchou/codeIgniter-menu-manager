@@ -37,7 +37,8 @@
                             </div>
                             <?php echo $menu_ul; ?>
                             <div id="ns-footer">
-                                <button type="submit" class="button green small" id="btn-save-menu">Save Menu</button>
+                                <button type="submit" class="btn btn-default btn-success" id="btn-save-menu">Save
+                                    Menu</button>
                             </div>
                         </form>
                     </div>
@@ -81,7 +82,7 @@
                                     </p>
                                     <p class="buttons">
                                         <input type="hidden" name="group_id" value="<?php echo $group_id; ?>">
-                                        <button id="add-menu" type="submit" class="button green small">Add Menu Item
+                                        <button id="add-menu" type="submit" class="btn btn-success ">Add Menu Item
                                         </button>
                                     </p>
                                 </form>
