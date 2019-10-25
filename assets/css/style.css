@@ -315,8 +315,9 @@ ul#menu-group li.current a {
 /* nested sortable
 ------------------------------------------------------------------------- */
 .ns-helper {
-	border: 1px dashed #C6C486;
-	background: #FAFAE0;
+	border: 1px dashed #e3e3e3;
+	background: #e6e6e6;
+	border-radius: 5px;
 }
 .sortable {
 	margin: 5px 0;

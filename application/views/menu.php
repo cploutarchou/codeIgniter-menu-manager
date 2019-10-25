@@ -6,10 +6,10 @@
             <div id="row">
                 <div class="col-md-12">
                     <header class="">
-                        <h1><a href="<?php echo site_url(); ?>">Easy Menu Manager</a></h1>
+                        <div class="h1" style="#333">CI - Easy Menu Manager</div>
                         <div id="link">
-                            <a class="btn btn-primary" href="<?php echo base_url() ?>menu/sample" target="_blank">Preview
-                                Menu</a>
+<!--                            <a class="btn btn-primary" href="--><?php //echo base_url() ?><!--menu/sample" target="_blank">Preview-->
+<!--                                Menu</a>-->
                         </div>
                     </header>
                 </div>
@@ -40,6 +40,7 @@
                                 <button type="submit" class="btn btn-default btn-success" id="btn-save-menu">Save
                                     Menu</button>
                             </div>
+                            <br>
                         </form>
                     </div>
                     <aside class="col-md-3">
