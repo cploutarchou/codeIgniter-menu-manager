@@ -424,11 +424,13 @@ span.error {
 	z-index: 10002;
 	width: 370px;
 	border: 1px solid #acacac;
+	border-radius: 5px;
 	color: #222;
 	background: #fff;
 	-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+. well;
 }
 #gbox_header {
 	padding: 5px 10px;
@@ -455,10 +457,12 @@ span.error {
 	border-top: 1px solid #eee;
 	background: #f9f9f9;
 	text-align: right;
+	border-radius: 5px;
 }
 
 #gbox_form input[type="text"] {
 	width: 95%;
+. group-control;
 }
 #gbox_bg {
 	position: fixed;
