@@ -315,10 +315,10 @@ class Menu extends CI_Controller
             '<div class="ns-class">' . $row['class'] . '</div>' .
             '<div class="actions">' .
             '<a href="#" class="edit-menu" title="Edit">' .
-            '<img src="' . base_url() . 'assets/images/edit.png" alt="Edit">' .
+            '<span class="glyphicon glyphicon-edit" style="color: #444"></span>' .
             '</a>' .
             '<a href="#" class="delete-menu" title="Delete">' .
-            '<img src="' . base_url() . 'assets/images/cross.png" alt="Delete">' .
+            '<span class=" 	glyphicon glyphicon-remove" style="color: red"></span>' .
             '</a>' .
             '<input type="hidden" name="menu_id" value="' . $row['id'] . '">' .
             '</div>' .
