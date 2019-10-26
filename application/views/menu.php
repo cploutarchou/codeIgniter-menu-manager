@@ -8,8 +8,9 @@
                     <header class="">
                         <div class="h1" style="#333">CI - Easy Menu Manager</div>
                         <div id="link">
-<!--                            <a class="btn btn-primary" href="--><?php //echo base_url() ?><!--menu/sample" target="_blank">Preview-->
-<!--                                Menu</a>-->
+                            <!--                            <a class="btn btn-primary" href="-->
+                            <?php //echo base_url() ?><!--menu/sample" target="_blank">Preview-->
+                            <!--                                Menu</a>-->
                         </div>
                     </header>
                 </div>
@@ -38,7 +39,8 @@
                             <?php echo $menu_ul; ?>
                             <div id="ns-footer">
                                 <button type="submit" class="btn btn-default btn-success" id="btn-save-menu">Save
-                                    Menu</button>
+                                    Menu
+                                </button>
                             </div>
                             <br>
                         </form>
@@ -49,9 +51,9 @@
                             <div>
                                 <p>Drag the menu list to re-order, </p>
                                 <p>Click <b>Update Menu</b> to save the
-                                position.
+                                    position.
                                 </p>
-                                <p>To add item on menu, use  form below.</p>
+                                <p>To add item on menu, use form below.</p>
                             </div>
                         </section>
                         <section class="box">
@@ -61,7 +63,7 @@
                                 (ID: <b><?php echo $group_id; ?></b>)
                                 <div>
                                     <a id="edit-group" href="#" title="Edit Menu"><span class="btn btn-primary"
-                                                                      style="color: #ffffff">Edit</span></a>
+                                                                                        style="color: #ffffff">Edit</span></a>
                                     <?php if ($group_id > 1) : ?>
                                         &middot; <a id="delete-group" href="#"><span class="btn btn-danger"
                                                                                      style="color:
@@ -74,18 +76,22 @@
                             <h2>Add To Menu</h2>
                             <div>
                                 <form id="form-add-menu" method="post" action="<?php echo site_url('menu/add'); ?>">
-                                    <p>
+                                    <div class="form-group">
                                         <label for="menu-title">Title</label>
-                                        <input type="text" name="title" id="menu-title">
-                                    </p>
-                                    <p>
+                                        <input style="width: 100% !important;" type="text" name="title" required
+                                               id="menu-title"
+                                               class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="menu-url">URL</label>
-                                        <input type="text" name="url" id="menu-url">
-                                    </p>
-                                    <p>
+                                        <input type="text" name="url" id="menu-url" class="form-control" required
+                                               style="width: 100% !important;">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="menu-class">Class</label>
-                                        <input type="text" name="class" id="menu-class">
-                                    </p>
+                                        <input type="text" name="class" id="menu-class" class="form-control"
+                                               style="width: 100% !important;">
+                                    </div>
                                     <p class="buttons">
                                         <input type="hidden" name="group_id" value="<?php echo $group_id; ?>">
                                         <button id="add-menu" type="submit" class="btn btn-success ">Add Menu Item
