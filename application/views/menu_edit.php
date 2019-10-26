@@ -8,10 +8,10 @@
         <label for="edit-menu-url">URL</label>
         <input type="text" name="url" id="edit-menu-url" value="<?php echo $row->url; ?>">
     </p>
-    <p>
-        <label for="edit-menu-class">Class</label>
-        <input type="text" name="class" id="edit-menu-class" value="<?php echo $row->class; ?>">
-    </p>
+<!--    <p>-->
+<!--        <label for="edit-menu-class">Class</label>-->
+<!--        <input type="text" name="class" id="edit-menu-class" value="--><?php //echo $row->class; ?><!--">-->
+<!--    </p>-->
     <?php if ($row->parent_id == 0) : //only top level menu can be moved ?>
         <p>
             <label for="select_group_id">Group</label>

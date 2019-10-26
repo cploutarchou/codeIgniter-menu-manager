@@ -77,7 +77,9 @@ jQuery(function($) {
 				$.each(options.buttons, function(k, v) {
 					buttonclass = '';
 					if (k == 'Save' || k == 'Yes' || k == 'OK') {
-						buttonclass = 'primary';
+						buttonclass = 'btn btn-default btn-success';
+					}else {
+						buttonclass = 'btn btn-default btn-danger';
 					}
 					$('<button></button>').addClass(buttonclass).text(k).click(v).appendTo('#gbox_footer');
 				});
@@ -149,7 +151,7 @@ jQuery(function($) {
 									gbox.hide();
 									menu_div.find('.ns-title').html(data.menu.title);
 									menu_div.find('.ns-url').html(data.menu.url);
-									menu_div.find('.ns-class').html(data.menu.klass);
+									// menu_div.find('.ns-class').html(data.menu.klass);
 									break;
 								case 2:
 									gbox.hide();
