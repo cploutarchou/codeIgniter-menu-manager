@@ -43,13 +43,15 @@
                             <br>
                         </form>
                     </div>
-                    <aside class="col-md-3">
+                    <aside class="col-md-3 col-sm-12">
                         <section class="box">
                             <h2>Info</h2>
                             <div>
-                                <p>Drag the menu list to re-order, and click <b>Update Menu</b> to save the position.
+                                <p>Drag the menu list to re-order, </p>
+                                <p>Click <b>Update Menu</b> to save the
+                                position.
                                 </p>
-                                <p>To add a menu item, use the form below.</p>
+                                <p>To add item on menu, use  form below.</p>
                             </div>
                         </section>
                         <section class="box">
@@ -58,9 +60,12 @@
                                 <span id="edit-group-input"><?php echo $group_title->title; ?></span>
                                 (ID: <b><?php echo $group_id; ?></b>)
                                 <div>
-                                    <a id="edit-group" href="#">Edit</a>
+                                    <a id="edit-group" href="#" title="Edit Menu"><span class="btn btn-primary"
+                                                                      style="color: #ffffff">Edit</span></a>
                                     <?php if ($group_id > 1) : ?>
-                                        &middot; <a id="delete-group" href="#">Delete</a>
+                                        &middot; <a id="delete-group" href="#"><span class="btn btn-danger"
+                                                                                     style="color:
+                                                                                     #ffffff">Delete</span></a>
                                     <?php endif; ?>
                                 </div>
                             </div>

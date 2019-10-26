@@ -190,11 +190,12 @@ a.button:hover {
 	border: 1px solid #e5e5e5;
 	background: #fafafa;
 	margin-bottom: 10px;
+	margin-top: 8px;
 }
 .box h2 {
 	margin: 0;
 	font: 12px Tahoma, sans-serif;
-	color: #902452;
+	color: #1b6d85;
 	font-weight: bold;
 	padding: 10px;
 	border-bottom: 1px solid #eee;
@@ -294,10 +295,8 @@ ul#menu-group li a:hover {
 }
 ul#menu-group li.current a {
 	color: #fff;
-	background: #666;
-	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#888), to(#666));
-	background: -moz-linear-gradient(#888, #666);
-	background: linear-gradient(#888, #666);
+	background: #616161;
+
 }
 
 #edit-form {
