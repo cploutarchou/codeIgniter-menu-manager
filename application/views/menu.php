@@ -5,8 +5,9 @@
         <div class="col-md-12">
             <div id="row">
                 <div class="col-md-12">
-                    <header class="">
-                        <div class="h1" style="#333">CI - Easy Menu Manager</div>
+                    <header >
+                        <h1 class="top-header-text">CI - Easy Menu Manager</h1>
+
                         <div id="link">
                             <!--                            <a class="btn btn-primary" href="-->
                             <?php //echo base_url() ?><!--menu/sample" target="_blank">Preview-->
