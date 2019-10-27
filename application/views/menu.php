@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div id="row">
                 <div class="col-md-12">
-                    <header >
+                    <header>
                         <h1 class="top-header-text">CI - Easy Menu Manager</h1>
 
                         <div id="link">
@@ -62,12 +62,12 @@
                             <div>
                                 <span id="edit-group-input"><?php echo $group_title->title; ?></span>
                                 (ID: <b><?php echo $group_id; ?></b>)
-                                <div>
+                                <div class="edit-group-buttons">
                                     <a id="edit-group" href="#" title="Edit Menu"><span class="btn btn-primary"
                                                                                         style="color: #ffffff">Edit</span></a>
                                     <?php if ($group_id > 1) : ?>
-                                        &middot; <a id="delete-group" href="#"><span class="btn btn-danger"
-                                                                                     style="color:
+                                        <a id="delete-group" href="#"><span class="btn btn-danger"
+                                                                            style="color:
                                                                                      #ffffff">Delete</span></a>
                                     <?php endif; ?>
                                 </div>
