@@ -352,6 +352,7 @@ ul#menu-group li a {
 ul#menu-group li a:hover {
     color: #555;
     background: #eee;
+    text-decoration: unset;
 }
 
 ul#menu-group li.current a {
@@ -360,6 +361,7 @@ ul#menu-group li.current a {
 
 }
 
+/*Edit Form*/
 #edit-form {
     display: none;
     border: 1px solid #ccc;
@@ -597,7 +599,7 @@ header {
 .top-header-text {
     margin-top: 15px;
     color: #ffffff;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 
 }
