@@ -3,12 +3,15 @@
 
     <div class="form-group">
         <label for="edit-menu-title">Title</label>
-        <input required type="text" name="title" id="edit-menu-title" class="form-control" value="<?php echo
+        <input required type="text" name="title" id="edit-menu-title" class="form-control" style="width: 100%"
+               value="<?php echo
         htmlentities($row->title) ?>">
     </div>
     <div class="form-group">
         <label for="edit-menu-url">URL</label>
-        <input type="text" name="url" class="form-control" id="edit-menu-url" value="<?php echo $row->url; ?>">
+        <input type="text" name="url" class="form-control" style="width: 100%" id="edit-menu-url" value="<?php echo
+        $row->url;
+        ?>">
     </div>
     <!--    <p>-->
     <!--        <label for="edit-menu-class">Class</label>-->
