@@ -240,7 +240,7 @@ a.button:hover {
 
 .box h2 {
     margin: 0;
-    font: 13px Tahoma, sans-serif;
+    font: 15px Tahoma, sans-serif;
     color: #3276B1;
     font-weight: bold;
     padding: 10px;
@@ -572,7 +572,8 @@ span.error {
 }
 
 #gbox input[type="text"] {
-    width: 95%;
+    width: 100%;
+    border-radius: 5px;
 }
 
 
@@ -606,6 +607,8 @@ header {
 
 }
 
+/*Current menu*/
 .edit-group-buttons{
     margin-top: 5px;
 }
+

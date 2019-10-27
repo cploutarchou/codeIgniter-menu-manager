@@ -26,7 +26,7 @@
                                 </li>
                             <?php endforeach; ?>
                             <li id="add-group"><a href="<?php echo site_url('menugroup/add'); ?>"
-                                                  title="Add New Menu">+</a>
+                                                  title="Add New Menu" class="btn  btn-default">+</a>
                             </li>
                         </ul>
                         <div class="clear"></div>
@@ -86,11 +86,6 @@
                                     <div class="form-group">
                                         <label for="menu-url">URL</label>
                                         <input type="text" name="url" id="menu-url" class="form-control" required
-                                               style="width: 100% !important;">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="menu-class">Class</label>
-                                        <input type="text" name="class" id="menu-class" class="form-control"
                                                style="width: 100% !important;">
                                     </div>
                                     <p class="buttons">
