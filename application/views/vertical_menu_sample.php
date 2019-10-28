@@ -34,18 +34,25 @@
                         <?php
                         $cat_title = $row->title;
                         $cat_id = $row->id;
+                        $setID = (int)'';
+                        if (!$_GET) {
+                            $setID = 1;
+                        } elseif (isset($_GET['cat'])) {
+                            $setID = $_GET['cat'];
+                        }
 
-
-                      if (strtolower($row->title) =='home'){
+                        if ($cat_id == $setID) {
                             $active = 'active';
-                        }else{
+                        } elseif ($cat_id == $setID) {
+                            $active = 'active';
+                        } else {
                             $active = '';
                         }
                         ?>
-                        <li class="<?php echo $active?>"><a href="<?php echo base_url() .'menu/vertical_sample?'
-                                .$row->id?>">
+                        <li class="<?php echo $active ?>"><a href="<?php echo base_url() . 'menu/vertical_sample?cat='
+                                . $cat_id ?>">
                                 <?php echo
-                                $row->title ?></a></li>
+                                $cat_title ?></a></li>
                         <!--                    <li class="dropdown">-->
                         <!--                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1-->
                         <!--                            <span class="caret"></span></a>-->
