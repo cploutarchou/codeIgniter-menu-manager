@@ -6,13 +6,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/sample.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/menu.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>
-            $(function () {
-                $('.vertical li:has(ul)').addClass('parent');
-                $('.horizontal li:has(ul)').addClass('parent');
-            });
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     </head>
     <body>
         <div id="wrapper">

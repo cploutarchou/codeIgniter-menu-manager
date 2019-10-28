@@ -2,9 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-function get_easymenu($group_id, $attr = '') {
-    
-    $ci = & get_instance();
+function get_easymenu($group_id, $attr = '')
+{
+
+    $ci = &get_instance();
     $ci->data = array();
     $ci->db->select('*');
     $ci->db->from('menu');
@@ -18,7 +19,7 @@ function get_easymenu($group_id, $attr = '') {
 
         $li_attr = '';
         if ($row->class) {
-            $li_attr = ' class="' . $row->class . '"';
+            $li_attr = ' class=""';
         }
         $ci->add_row($row->id, $row->parent_id, $li_attr, $label);
     }
@@ -26,15 +27,36 @@ function get_easymenu($group_id, $attr = '') {
     return $menu;
 }
 
+function get_menu($group_id, $attr = '')
+{
+    $object = new ArrayObject();
+    $main_menu = [];
+    $ci = &get_instance();
+    $ci->data = array();
+    $ci->db->select('*');
+    $ci->db->from('menu');
+    $ci->db->where('group_id', $group_id);
+    $query = $ci->db->get();
+    $menu = $query->result();
+    for ($i = 0; $i <= count($menu)-1; $i++) {
+        if ($menu[$i]->parent_id == 0) {
+            $main_menu[] = $menu[$i];
+        }
+    }
+    $object->main_menu = $main_menu;
+    return $object;
+}
+
 /**
  * Add an item
  *
- * @param int $id 			ID of the item
- * @param int $parent 		parent ID of the item
- * @param string $li_attr 	attributes for <li>
- * @param string $label		text inside <li></li>
+ * @param int $id ID of the item
+ * @param int $parent parent ID of the item
+ * @param string $li_attr attributes for <li>
+ * @param string $label text inside <li></li>
  */
-function add_row($id, $parent, $li_attr, $label) {
+function add_row($id, $parent, $li_attr, $label)
+{
     $this->data[$parent][] = array('id' => $id, 'li_attr' => $li_attr, 'label' => $label);
 }
 
@@ -44,14 +66,17 @@ function add_row($id, $parent, $li_attr, $label) {
  * @param string $ul_attr
  * @return string
  */
-function generate_list($ul_attr = '') {
+function generate_list($ul_attr = '')
+{
     return $this->ul(0, $ul_attr);
     $this->data = array();
 }
+
 /**
-	 * Clear the temporary data
-	 *
-	 */
-	function clear() {
-		$this->data = array();
-	}
+ * Clear the temporary data
+ *
+ */
+function clear()
+{
+    $this->data = array();
+}

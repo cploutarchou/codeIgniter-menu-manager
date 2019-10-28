@@ -9,9 +9,9 @@
                         <h1 class="top-header-text">CI - Easy Menu Manager</h1>
 
                         <div id="link">
-                            <!--                            <a class="btn btn-primary" href="-->
-                            <?php //echo base_url() ?><!--menu/sample" target="_blank">Preview-->
-                            <!--                                Menu</a>-->
+                                                        <a class="btn btn-primary" href="
+                            <?php echo base_url() ?>menu/vertical_sample" target="_blank">Preview
+                                                            Menu</a>
                         </div>
                     </header>
                 </div>
