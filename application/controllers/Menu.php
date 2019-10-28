@@ -331,7 +331,7 @@ class Menu extends CI_Controller
         $this->load->view('sample');
     }
 
-    public function vertical_sample()
+    public function vertical_sample($category='')
     {
         $this->load->view('vertical_menu_sample');
     }

@@ -31,8 +31,21 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <?php foreach ($menu->main_menu as $row): ?>
+                        <?php
+                        $cat_title = $row->title;
+                        $cat_id = $row->id;
 
-                        <li class=""><a href="#"><?php echo $row->title ?></a></li>
+
+                      if (strtolower($row->title) =='home'){
+                            $active = 'active';
+                        }else{
+                            $active = '';
+                        }
+                        ?>
+                        <li class="<?php echo $active?>"><a href="<?php echo base_url() .'menu/vertical_sample?'
+                                .$row->id?>">
+                                <?php echo
+                                $row->title ?></a></li>
                         <!--                    <li class="dropdown">-->
                         <!--                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1-->
                         <!--                            <span class="caret"></span></a>-->
