@@ -6,7 +6,6 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel='icon' href='../../favicon.ico' type='image/x-icon'/ >
     <!--[if lt IE 9]>
