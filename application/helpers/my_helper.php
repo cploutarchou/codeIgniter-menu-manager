@@ -29,8 +29,9 @@ function get_easymenu($group_id, $attr = '')
 
 function get_menu($group_id, $attr = '')
 {
-    $object = new ArrayObject();
+    $object = new stdClass();
     $main_menu = [];
+    $parent_menu = [];
     $ci = &get_instance();
     $ci->data = array();
     $ci->db->select('*');
@@ -38,12 +39,27 @@ function get_menu($group_id, $attr = '')
     $ci->db->where('group_id', $group_id);
     $query = $ci->db->get();
     $menu = $query->result();
-    for ($i = 0; $i <= count($menu)-1; $i++) {
+
+    for ($i = 0; $i <= count($menu) - 1; $i++) {
         if ($menu[$i]->parent_id == 0) {
             $main_menu[] = $menu[$i];
-        }
-    }
+
+        };
+        if ($menu[$i]->parent_id != 0) {
+            $parent_menu[] = $menu[$i];
+        };
+    };
     $object->main_menu = $main_menu;
+    for ($i = 0; $i <= count($menu) - 1; $i++) {
+        foreach ($parent_menu as $parent) {
+            if ($parent->parent_id == $menu[$i]->id) {
+                $object->main_menu[$i]->ok[]=$parent;
+            };
+        };
+    };
+
+
+
     return $object;
 }
 
