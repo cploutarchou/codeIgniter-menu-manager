@@ -22,7 +22,7 @@
 
         <?php $menu = get_menu(1); ?>
         <pre>
-<?php var_dump($menu->main_menu);die();?>
+<?php //var_dump($menu->count);die();?>
         </pre>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -30,44 +30,27 @@
                     <a class="navbar-brand" href="#">CI-Menu Manager</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <?php foreach ($menu->main_menu as $row): ?>
-<!--                        --><?php //foreach ($menu->parent_menus as $submenu): ?>
-                            <?php
-                            $cat_title = $row->title;
-                            $cat_id = $row->id;
-                            $setID = (int)'';
-                            if (!$_GET) {
-                                $setID = 1;
-                            } elseif (isset($_GET['cat'])) {
-                                $setID = $_GET['cat'];
-                            }
 
-                            if ($cat_id == $setID) {
-                                $active = 'active';
-                            } elseif ($cat_id == $setID) {
-                                $active = 'active';
-                            } else {
-                                $active = '';
-                            }
-                            ?>
-                            <li class="<?php echo $active ?>"><a
+                    <?php for ($i = 0; $i <= $menu->count; $i++) { ?>
+                        <?php if (count($menu->main_menu[$i]->submenu) === 0): ?>
+                            <li class="<?php ?>"><a
                                         href="<?php echo base_url() . 'menu/vertical_sample?cat='
-                                            . $cat_id ?>">
+                                            . $menu->main_menu[$i]->id ?>">
                                     <?php echo
-                                    $cat_title ?></a></li>
-<!--                        --><?php //if ($submenu->id==$row->id):?>
-<!--                                                <li class="dropdown">-->
-<!--                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1-->
-<!--                                                        <span class="caret"></span></a>-->
-<!--                                                    <ul class="dropdown-menu">-->
-<!--                                                        <li><a href="#">--><?php //echo $submenu->title ?><!--></a></li>-->
-<!---->
-<!--                                                    </ul>-->
-<!--                                                </li>-->
+                                    $menu->main_menu[$i]->title ?></a></li>
+                        <?php else: ?>
 
-<!--                        --><?php //endif; ?>
-<!--                        --><?php //endforeach; ?>
-                    <?php endforeach; ?>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php
+                                    echo $menu->main_menu[$i]->title ?>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><?php echo 'test' ?></a></li>
+
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>

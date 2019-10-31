@@ -53,12 +53,12 @@ function get_menu($group_id, $attr = '')
     for ($i = 0; $i <= count($menu) - 1; $i++) {
         foreach ($parent_menu as $parent) {
             if ($parent->parent_id == $menu[$i]->id) {
-                $object->main_menu[$i]->ok[]=$parent;
+                $object->main_menu[$i]->submenu[]=$parent;
             };
         };
     };
 
-
+    $object->count = count($main_menu)-1;
 
     return $object;
 }
