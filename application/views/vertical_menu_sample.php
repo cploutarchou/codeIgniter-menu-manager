@@ -32,21 +32,19 @@
                 <ul class="nav navbar-nav">
 
                     <?php for ($i = 0; $i <= $menu->count; $i++) { ?>
-                        <?php if (count($menu->main_menu[$i]->submenu) === 0): ?>
+                        <?php if (!isset($menu->main_menu[$i]->submenu)): ?>
                             <li class="<?php ?>"><a
                                         href="<?php echo base_url() . 'menu/vertical_sample?cat='
                                             . $menu->main_menu[$i]->id ?>">
                                     <?php echo
                                     $menu->main_menu[$i]->title ?></a></li>
                         <?php else: ?>
-
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php
                                     echo $menu->main_menu[$i]->title ?>
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"><?php echo 'test' ?></a></li>
-
                                 </ul>
                             </li>
                         <?php endif; ?>

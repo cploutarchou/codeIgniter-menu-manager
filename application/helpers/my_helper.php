@@ -96,3 +96,12 @@ function clear()
 {
     $this->data = array();
 }
+
+function is_array_check(array $test_var) {
+    foreach ($test_var as $key => $el) {
+        if (is_array($el)) {
+            return true;
+        }
+    }
+    return false;
+}
