@@ -55,6 +55,10 @@ function get_menu($group_id, $attr = '')
             if ($parent->parent_id == $menu[$i]->id) {
                 $object->main_menu[$i]->submenu[]=$parent;
             };
+            if ( in_array($parent->parent_id,$menu[$i]->id)) {
+
+//                $object->main_menu[$i]->submenu->subsubmenu[]=$parent;
+            };
         };
     };
 

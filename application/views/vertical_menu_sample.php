@@ -22,7 +22,7 @@
 
         <?php $menu = get_menu(1); ?>
         <pre>
-<?php //var_dump($menu->count);die();?>
+            <?php echo var_dump($menu->main_menu[2]->submenu->subsubmenu)?>
         </pre>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
