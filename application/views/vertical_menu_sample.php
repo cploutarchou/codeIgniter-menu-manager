@@ -22,7 +22,7 @@
 
         <?php $menu = get_menu(1); ?>
         <pre>
-            <?php echo var_dump($menu->main_menu[2]->submenu->subsubmenu)?>
+
         </pre>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -44,7 +44,11 @@
                                     echo $menu->main_menu[$i]->title ?>
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><?php echo 'test' ?></a></li>
+                                    <?php if (isset($menu->main_menu[$i]->submenu)): ?>
+                                        <?php foreach ($menu->main_menu[$i]->submenu as $subSub): ?>
+                                            <li><a href="#"><?php echo $subSub->title ?></a></li>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </ul>
                             </li>
                         <?php endif; ?>

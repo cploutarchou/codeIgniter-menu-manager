@@ -53,16 +53,20 @@ function get_menu($group_id, $attr = '')
     for ($i = 0; $i <= count($menu) - 1; $i++) {
         foreach ($parent_menu as $parent) {
             if ($parent->parent_id == $menu[$i]->id) {
-                $object->main_menu[$i]->submenu[]=$parent;
+                $object->main_menu[$i]->submenu[] = $parent;
+                $subMenu[] = $parent;
             };
-            if ( in_array($parent->parent_id,$menu[$i]->id)) {
+        };
+        if (!empty($subMenu)) {
+            foreach ($subMenu as $subSub) {
+                $object->main_menu[$i]->subsub[]= $subSub;
+            };
 
-//                $object->main_menu[$i]->submenu->subsubmenu[]=$parent;
-            };
+
         };
     };
 
-    $object->count = count($main_menu)-1;
+    $object->count = count($main_menu) - 1;
 
     return $object;
 }
@@ -101,7 +105,8 @@ function clear()
     $this->data = array();
 }
 
-function is_array_check(array $test_var) {
+function is_array_check(array $test_var)
+{
     foreach ($test_var as $key => $el) {
         if (is_array($el)) {
             return true;
