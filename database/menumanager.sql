@@ -3,9 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 01:47 PM
+-- Generation Time: Nov 03, 2019 at 01:47 PM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `easymenu`
+-- Database: `menumanager`
 --
 
 -- --------------------------------------------------------
