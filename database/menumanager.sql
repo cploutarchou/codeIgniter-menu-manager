@@ -42,49 +42,37 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `parent_id`, `title`, `url`, `class`, `position`, `group_id`) VALUES
-(1, 0, 'Homes', '/', '', 1, 1),
-(63, 62, 'new case', '#', '', 1, 8),
-(19, 0, 'Affiliate', '/affiliate.html', '', 1, 2),
-(18, 0, 'Forum', '/forum', '', 2, 2),
-(17, 0, 'Make Money', '/make-money.html', '', 3, 2),
-(62, 0, 't 3', '#', '', 3, 8),
-(8, 0, 'Blog', '/blog', '', 2, 1),
-(9, 0, 'Products', '/products', '', 3, 1),
-(10, 9, 'Handicraft', '/products/handicraft', '', 1, 1),
-(11, 9, 'Furniture', '/products/furniture', '', 2, 1),
-(12, 10, 'Tissue Box', '/products/handicraft/tissue', '', 1, 1),
-(13, 10, 'Frame', '/products/handicraft/frame', '', 2, 1),
-(14, 11, 'Cabinet', '/products/furniture/cabinet', '', 1, 1),
-(15, 11, 'Chair', '/products/furniture/chair', '', 2, 1),
-(16, 9, 'Tables', '/products/furniture/table', '', 3, 1),
-(20, 0, 'Help', '/help', '', 4, 2),
-(21, 20, 'Support Center', '/support-center.html', '', 1, 2),
-(22, 20, 'Sitemap', '/sitemap.html', '', 3, 2),
-(23, 0, 'Author Dashboard', '/author-dashboard', '', 1, 3),
-(24, 0, 'My Profile', '/member/profile', '', 2, 3),
-(25, 0, 'Settings', '/member/settings', '', 3, 3),
-(26, 25, 'Downloads', '/member/downloads', '', 3, 3),
-(27, 0, 'Bookmarks', '/member/bookmarks', '', 4, 3),
-(28, 0, 'Logout', '/logout.php', '', 5, 3),
-(29, 25, 'Profile', '/member/settings/profile', '', 1, 3),
-(30, 25, 'Change Password', '/member/settings/password', '', 2, 3),
-(31, 0, 'Item 1', '', '', 1, 4),
-(32, 31, 'Item 1.1', '', '', 1, 4),
-(33, 31, 'Item 1.2', '', '', 2, 4),
-(34, 0, 'Item 2', '', '', 2, 4),
-(35, 34, 'Item 2.1', '', '', 1, 4),
-(36, 35, 'Item 2.1.1', '', '', 1, 4),
-(37, 35, 'Item 2.1.2', '', '', 2, 4),
-(38, 34, 'Item 2.2', '', '', 2, 4),
-(39, 21, 'Popular Files', '/popular', '', 1, 2),
-(40, 21, 'Top Authors', '/top', '', 2, 2),
-(41, 20, 'Wordpress', '/wp', '', 2, 2),
-(61, 55, 't 2.3.1', '#', '', 1, 8),
-(55, 54, 't 2.2', '#', '', 1, 8),
-(54, 0, 't 2', '#', '', 2, 8),
-(52, 0, 't 1', '#', '', 1, 8),
-(53, 52, 't 1.1', '#', '', 1, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (1, 0, 'Home', '/', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (63, 62, 'new case', '#', '', 1, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (62, 0, 't 3', '#', '', 3, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (8, 0, 'Blog', '/blog', '', 2, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (9, 0, 'Products', '/products', '', 3, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (10, 9, 'Sample1', '/products/sample1', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (11, 9, 'Product 2', '/sample1/product2', '', 2, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (12, 10, 'Test Sub Sub 1', '/products/sample1/product1', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (13, 10, 'Test Sub Sub 2', '/products/sample1/product2', '', 2, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (14, 11, 'Test Product', '/products2/TestProduct', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (15, 14, 'Test Product', '/products/TestProduct/TestProduct', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (16, 15, 'Test Product', '/products/TestProduct/TestProduct', '', 1, 1);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (23, 0, 'Author Dashboard', '/author-dashboard', '', 1, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (24, 0, 'My Profile', '/member/profile', '', 2, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (25, 0, 'Settings', '/member/settings', '', 3, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (26, 25, 'Downloads', '/member/downloads', '', 3, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (27, 0, 'Bookmarks', '/member/bookmarks', '', 4, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (28, 0, 'Logout', '/logout.php', '', 5, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (29, 25, 'Profile', '/member/settings/profile', '', 1, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (30, 25, 'Change Password', '/member/settings/password', '', 2, 3);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (32, 31, 'Item 1.1', '', '', 1, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (33, 31, 'Item 1.2', '', '', 2, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (34, 0, 'Item 2', '', '', 2, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (35, 34, 'Item 2.1', '', '', 1, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (36, 35, 'Item 2.1.1', '', '', 1, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (38, 34, 'Item 2.2', '', '', 2, 4);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (61, 55, 't 2.3.1', '#', '', 1, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (55, 54, 't 2.2', '#', '', 1, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (54, 0, 't 2', '#', '', 2, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (52, 0, 't 1', '#', '', 1, 8);
+INSERT INTO menu_manager.menu (id, parent_id, title, url, class, position, group_id) VALUES (53, 52, 't 1.1', '#', '', 1, 8);
 
 -- --------------------------------------------------------
 
