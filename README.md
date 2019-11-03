@@ -1,6 +1,6 @@
 # Codeigniter With Menu Manager Pre-installed
 
-# Work in process...................... Version One Comming soon
+# Work in process......................
 
 **Installation Steps:**
 * Upload project on server
