@@ -73,7 +73,6 @@ function get_menu($group_id, $attr = '')
         }
     }
 
-
     $object->count = count($main_menu) - 1;
 
     return $object;

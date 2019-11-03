@@ -8,7 +8,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+<style>
+    .dropdown-submenu {
+        position: relative;
+    }
 
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+</style>
 
 <body>
 
@@ -21,9 +31,15 @@
     <div class="row">
 
         <?php $menu = get_menu(1); ?>
-        <pre>
-
-            <?php var_dump($menu->main_menu[2]->submenu[0]->sub[0]);?>
+        <!--        <pre>-->
+        <!---->
+        <!---->
+        <!--           --><?php ////var_dump($menu->main_menu[2]->submenu[0]->sub[0]);
+        //
+        //            foreach ($menu->main_menu[2]->submenu as $sub){
+        //                print_r($sub->sub);
+        //            }
+        //             ?>
         </pre>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -46,8 +62,26 @@
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <?php if (isset($menu->main_menu[$i]->submenu)): ?>
-                                        <?php foreach ($menu->main_menu[$i]->submenu as $subSub): ?>
-                                            <li><a href="#"><?php echo $subSub->title ?></a></li>
+                                        <?php $s = 0;
+                                        foreach ($menu->main_menu[$i]->submenu as $subSub): ?>
+                                            <?php
+//                                            var_dump($subSub->sub[$s]);
+
+                                            if (count($subSub->sub[$s]) == -1): ?>
+                                                <li><a href="#"><?php echo $subSub->title ?></a>
+                                            <?php else: ?>
+
+                                                <li class="dropdown-submenu">
+                                                    <a class="test" href="#"><?php echo $subSub->title ?><span
+                                                                class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <?php foreach ($subSub->sub[$s] as $subSubMen) { ?>
+                                                            <li><a href="#"><?php echo $subSubMen->title ?></a></li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </li>
+                                                <?php $s++;endif; ?>
+
                                         <?php endforeach; ?>
                                     <?php endif; ?>
                                 </ul>
@@ -63,3 +97,12 @@
 
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-submenu a.test').on("click", function (e) {
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+</script>
