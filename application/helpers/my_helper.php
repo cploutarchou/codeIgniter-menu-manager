@@ -2,32 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-function get_easymenu($group_id, $attr = '')
-{
 
-    $ci = &get_instance();
-    $ci->data = array();
-    $ci->db->select('*');
-    $ci->db->from('menu');
-    $ci->db->where('group_id', $group_id);
-    $query = $ci->db->get();
-    $menu = $query->result();
-    foreach ($menu as $row) {
-        $label = '<a href="' . $row->url . '">';
-        $label .= $row->title;
-        $label .= '</a>';
-
-        $li_attr = '';
-        if ($row->class) {
-            $li_attr = ' class=""';
-        }
-        $ci->add_row($row->id, $row->parent_id, $li_attr, $label);
-    }
-    $menu = $ci->generate_list($attr);
-    return $menu;
-}
-
-function get_menu($group_id, $attr = '')
+function get_main_menu($group_id, $attr = '')
 {
     $object = new stdClass();
     $main_menu = [];
@@ -67,7 +43,7 @@ function get_menu($group_id, $attr = '')
             foreach ($object->main_menu[$i]->submenu as $sub) {
                 $query = $ci->db->query("select * from menu where parent_id = $sub->id");
                 $res = $query->result();
-                $ar[] =$res;
+                $ar[] = $res;
                 $sub->sub = $ar;
             }
         }
@@ -76,6 +52,17 @@ function get_menu($group_id, $attr = '')
     $object->count = count($main_menu) - 1;
 
     return $object;
+}
+
+function get_menu($group_id, $style = '')
+{
+
+    $ci = &get_instance();
+    $data = [
+        'group_id' => $group_id,
+        'style'=>$style
+    ];
+    $ci->load->view('menus/vertical-menu-default',$data);
 }
 
 /**
