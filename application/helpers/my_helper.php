@@ -49,22 +49,30 @@ function get_menu($group_id, $attr = '')
             $parent_menu[] = $menu[$i];
         };
     };
+
     $object->main_menu = $main_menu;
     for ($i = 0; $i <= count($menu) - 1; $i++) {
         foreach ($parent_menu as $parent) {
             if ($parent->parent_id == $menu[$i]->id) {
                 $object->main_menu[$i]->submenu[] = $parent;
-                $subMenu[] = $parent;
-            };
-        };
-        if (!empty($subMenu)) {
-            foreach ($subMenu as $subSub) {
-                $object->main_menu[$i]->subsub[]= $subSub;
+                $subParent[] = $parent;
             };
 
 
         };
+
     };
+    for ($i = 0; $i <= count($menu) - 1; $i++) {
+        if (@is_array($object->main_menu[$i]->submenu)) {
+            foreach ($object->main_menu[$i]->submenu as $sub) {
+                $query = $ci->db->query("select * from menu where parent_id = $sub->id");
+                $res = $query->result();
+                $ar[] =$res;
+                $sub->sub = $ar;
+            }
+        }
+    }
+
 
     $object->count = count($main_menu) - 1;
 
