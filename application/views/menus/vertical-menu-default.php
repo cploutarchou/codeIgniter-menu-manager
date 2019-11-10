@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<!--<pre>--><?php //var_dump($group_id);?><!--</pre>-->
+
 <?php $menu = get_main_menu($group_id); ?>
 <nav class="navbar <?php if ($style==''||$style=='default') {
     echo 'navbar-default';
@@ -64,25 +54,3 @@
         </ul>
     </div>
 </nav>
-
-<style>
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu .dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -1px;
-    }
-</style>
-
-<script>
-    $(document).ready(function () {
-        $('.dropdown-submenu a.test').on("click", function (e) {
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
-        });
-    });
-</script>
