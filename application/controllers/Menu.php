@@ -292,8 +292,7 @@ class Menu extends CI_Controller
     {
         $label = '<div class="ns-row">' .
             '<div class="ns-title">' . $row->title . '</div>' .
-            '<div class="ns-url">' . $row->url . '</div>' .
-//            '<div class="ns-class">' . $row->class . '</div>' .
+            '<div class="ns-url">' . $row->url . '</div>' ..
             '<div class="actions">' .
             '<a href="#" class="edit-menu" title="Edit">' .
             '<span class="glyphicon glyphicon-edit" style="color: #444"></span>' .
@@ -312,7 +311,6 @@ class Menu extends CI_Controller
         $label = '<div class="ns-row">' .
             '<div class="ns-title">' . $row['title'] . '</div>' .
             '<div class="ns-url">' . $row['url'] . '</div>' .
-//            '<div class="ns-class">' . $row['class'] . '</div>' .
             '<div class="actions">' .
             '<a href="#" class="edit-menu" title="Edit">' .
             '<span class="glyphicon glyphicon-edit" style="color: #444"></span>' .
