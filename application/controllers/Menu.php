@@ -125,7 +125,7 @@ class Menu extends CI_Controller
             $data['title'] = $this->input->post('title');
             if (!empty($data['title'])) {
                 $data['url'] = $this->input->post('url');
-                $data['class'] = $this->input->post('class');
+//                $data['class'] = $this->input->post('class');
                 $data['group_id'] = $this->input->post('group_id');
                 if ($this->db->insert('menu', $data)) {
                     $data['id'] = $this->db->Insert_ID();
@@ -312,7 +312,7 @@ class Menu extends CI_Controller
         $label = '<div class="ns-row">' .
             '<div class="ns-title">' . $row['title'] . '</div>' .
             '<div class="ns-url">' . $row['url'] . '</div>' .
-            '<div class="ns-class">' . $row['class'] . '</div>' .
+//            '<div class="ns-class">' . $row['class'] . '</div>' .
             '<div class="actions">' .
             '<a href="#" class="edit-menu" title="Edit">' .
             '<span class="glyphicon glyphicon-edit" style="color: #444"></span>' .
