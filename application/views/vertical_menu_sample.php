@@ -8,16 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
-    .dropdown-submenu {
-        position: relative;
-    }
+        .dropdown-submenu {
+            position: relative;
+        }
 
-    .dropdown-submenu .dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -1px;
-    }
-</style>
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
 
 <body>
 
@@ -32,8 +32,14 @@
     </div>
 </div>
 <script>
-    $(document).ready(function(){
-        $('.dropdown-submenu a.test').click( function(e){
+    $(document).ready(function () {
+        var menu = $('.dropdown-submenu a.test');
+        menu.on('mouseenter', function (e) {
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        menu.on('mouseout', function (e) {
             $(this).next('ul').toggle();
             e.stopPropagation();
             e.preventDefault();
