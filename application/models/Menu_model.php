@@ -3,13 +3,20 @@
 class Menu_model extends CI_Model
 {
 
-    public function get_menu($group_id) {
-        $query = $this->db->select('*')
-                ->order_by("id", "asc")
-                ->from("menu")
-                ->where('group_id', $group_id)
-                ->get();
-        return $query->result();
+    public function get_menu($group_id)
+    {
+        $this->db->select('*');
+        $this->db->from('menu');
+        $this->db->where('group_id',$group_id);
+        $this->db->order_by('parent_id , position');
+        $query = $this->db->get();
+        $res = $query->result();
+        if ($res){
+            return $res;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
