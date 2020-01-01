@@ -1,56 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <?php $menu = get_main_menu($group_id);
+            //            var_dump($menu);?>
 
-<?php $menu = get_main_menu($group_id); ?>
-<nav class="navbar <?php if ($style==''||$style=='default') {
-    echo 'navbar-default';
-}else if ($style=='black'){
-    echo  'navbar-inverse';
-}?>">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">CI-Menu Manager</a>
-        </div>
-        <ul class="nav navbar-nav">
+            <nav class="navbar <?php if ($style == '' || $style == 'default') {
+                echo 'navbar-default';
+            } else if ($style == 'black') {
+                echo 'navbar-inverse';
+            } ?>" role="navigation">
 
-            <?php for ($i = 0; $i <= $menu->count; $i++) { ?>
-                <?php if (!isset($menu->main_menu[$i]->submenu)): ?>
-                    <li class="<?php ?>"><a
-                            href="<?php echo base_url() . 'menu/vertical_sample?cat='
-                                . $menu->main_menu[$i]->id ?>">
-                            <?php echo
-                            $menu->main_menu[$i]->title ?></a></li>
-                <?php else: ?>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php
-                            echo $menu->main_menu[$i]->title ?>
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <?php if (isset($menu->main_menu[$i]->submenu)): ?>
-                                <?php $s = 0;
-                                foreach ($menu->main_menu[$i]->submenu as $subSub): ?>
-                                    <?php
-//                                            var_dump($subSub->sub[$s]);
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" target="_blank">CI-Menu Manager</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <?php for ($i = 0; $i < count($menu->main_menu, true); $i++) { ?>
+                            <?php if (count($menu->main_menu[$i]->parent_menu, true) == 0): ?>
+                                <li class=""><a
+                                            href="<?php echo base_url() . $menu->main_menu[$i]->url ?>">
+                                        <?php echo
+                                        $menu->main_menu[$i]->title ?></a></li>
+                            <?php else: ?>
+                                <li class="dropdown">
+                                    <a href="<?php echo base_url() . $menu->main_menu[$i]->url ?>"
+                                       class="dropdown-toggle"
+                                       data-toggle="dropdown"><?php
+                                        echo $menu->main_menu[$i]->title ?> <b
+                                                class="caret"></b></a>
+                                    <ul class="dropdown-menu">
 
-                                    if (count($subSub->sub[$s]) == -1): ?>
-                                        <li><a href="#"><?php echo $subSub->title ?></a>
-                                    <?php else: ?>
+                                        <li class="dropdown dropdown-submenu">
+                                            <?php
 
-                                        <li class="dropdown-submenu">
-                                            <a class="test" href="#"><?php echo $subSub->title ?><span
-                                                    class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <?php foreach ($subSub->sub[$s] as $subSubMen) { ?>
-                                                    <li><a href="#"><?php echo $subSubMen->title ?></a></li>
-                                                <?php } ?>
-                                            </ul>
+                                            for ($b = 0; $b < count($menu->main_menu[$i]->parent_menu, true); $b++):
+                                                var_dump(!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu));
+                                                if (!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu)):?>
+                                                    <a href="#"><?php echo
+                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?></a>
+                                                <?php else: ?>
+                                                    <?php for ($d = 0; $d < count($menu->main_menu[$i]->parent_menu[$b]->parent_submenu, true);$d++) :?>
+                                                        <a href="<?php echo base_url() .
+                                                            $menu->main_menu[$i]->parent_menu[$b]->url ?>"
+                                                           class="dropdown-toggle"
+                                                           data - toggle="dropdown"
+                                                           style="border-bottom: #e6e6e6 solid 1px"><?php echo
+                                                            $menu->main_menu[$i]->parent_menu[$b]->title ?>
+                                                        </a>
+                                                    <?php endfor;?>
+
+                                                    <!--                                                <ul class="dropdown-menu">-->
+                                                    <!--                                                    --><?php
+//                                                    foreach ($menu->main_menu[$i]->parent_menu->parent_submenu as $subSub): ?>
+                                                    <!--                                                        <li><a href="#"></a></li>-->
+                                                    <!--                                                    --><?php //endforeach; ?>
+                                                    <!--                                                </ul>-->
+
+
+                                                <?php endif; endfor; ?>
+
                                         </li>
-                                        <?php $s++;endif; ?>
 
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-            <?php } ?>
-        </ul>
+                                    </ul>
+
+                                </li>
+                            <?php endif;
+                        } ?>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-</nav>
+</div>

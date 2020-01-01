@@ -8,6 +8,7 @@ function get_main_menu($group_id, $attr = '')
     $object = new stdClass();
     $main_menu = [];
     $parent_menu = [];
+    $parent_submenu = [];
     $ci = &get_instance();
     $ci->data = array();
     $ci->db->select('*');
@@ -21,35 +22,38 @@ function get_main_menu($group_id, $attr = '')
             $main_menu[] = $menu[$i];
 
         };
-        if ($menu[$i]->parent_id != 0) {
-            $parent_menu[] = $menu[$i];
-        };
-    };
 
-    $object->main_menu = $main_menu;
-    for ($i = 0; $i <= count($menu) - 1; $i++) {
-        foreach ($parent_menu as $parent) {
-            if ($parent->parent_id == $menu[$i]->id) {
-                $object->main_menu[$i]->submenu[] = $parent;
-                $subParent[] = $parent;
+    };
+    for ($x = 0; $x < count($main_menu, true); $x++) {
+        for ($i = 0; $i < count($menu, true); $i++) {
+            if ($menu[$i]->parent_id == $main_menu[$x]->id) {
+                $parent_menu[] = $menu[$i];
             };
-
-
         };
-
+        $main_menu[$x]->parent_menu = $parent_menu;
     };
-    for ($i = 0; $i <= count($menu) - 1; $i++) {
-        if (@is_array($object->main_menu[$i]->submenu)) {
-            foreach ($object->main_menu[$i]->submenu as $sub) {
-                $query = $ci->db->query("select * from menu where parent_id = $sub->id");
-                $res = $query->result();
-                $ar[] = $res;
-                $sub->sub = $ar;
-            }
-        }
-    }
 
-    $object->count = count($main_menu) - 1;
+
+    for ($i = 0; $i < count($main_menu, true); $i++) {
+        for ($x = 0; $x < count($main_menu[$i]->parent_menu, true); $x++) {
+            for ($e = 0; $e < count($menu, true); $e++) {
+                if ($main_menu[$i]->parent_menu[$x]->id == $menu[$e]->parent_id) {
+                    $f = 0;
+                    $d = $x;
+//                    var_dump($d);
+                    if ($f !== $d) {
+//                        var_dump(true);
+                        $parent_submenu[] = [];
+                    } else {
+                        $parent_submenu[] = $menu[$e];
+                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu;
+                    }
+                };
+            };
+        };
+    }
+//    var_dump($main_menu[2]->parent_menu[0]);
+    $object->main_menu = $main_menu;
 
     return $object;
 }
@@ -60,9 +64,9 @@ function get_menu($group_id, $style = '')
     $ci = &get_instance();
     $data = [
         'group_id' => $group_id,
-        'style'=>$style
+        'style' => $style
     ];
-    $ci->load->view('menus/vertical-menu-default',$data);
+    $ci->load->view('menus/vertical-menu-default', $data);
 }
 
 /**
