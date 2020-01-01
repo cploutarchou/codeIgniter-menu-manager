@@ -43,7 +43,8 @@ function get_main_menu($group_id, $attr = '')
 //                    var_dump($d);
                     if ($f !== $d) {
 //                        var_dump(true);
-                        $parent_submenu[] = [];
+                        $parent_submenu1[] = $menu[$e];
+                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu1;
                     } else {
                         $parent_submenu[] = $menu[$e];
                         $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu;
@@ -52,7 +53,7 @@ function get_main_menu($group_id, $attr = '')
             };
         };
     }
-//    var_dump($main_menu[2]->parent_menu[0]);
+//    var_dump($main_menu[2]->parent_menu[1]);
     $object->main_menu = $main_menu;
 
     return $object;

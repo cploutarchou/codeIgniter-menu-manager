@@ -40,28 +40,19 @@
                                             <?php
 
                                             for ($b = 0; $b < count($menu->main_menu[$i]->parent_menu, true); $b++):
-                                                var_dump(!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu));
+
                                                 if (!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu)):?>
                                                     <a href="#"><?php echo
                                                         $menu->main_menu[$i]->parent_menu[$b]->title ?></a>
                                                 <?php else: ?>
-                                                    <?php for ($d = 0; $d < count($menu->main_menu[$i]->parent_menu[$b]->parent_submenu, true);$d++) :?>
-                                                        <a href="<?php echo base_url() .
-                                                            $menu->main_menu[$i]->parent_menu[$b]->url ?>"
-                                                           class="dropdown-toggle"
-                                                           data - toggle="dropdown"
-                                                           style="border-bottom: #e6e6e6 solid 1px"><?php echo
-                                                            $menu->main_menu[$i]->parent_menu[$b]->title ?>
-                                                        </a>
-                                                    <?php endfor;?>
 
-                                                    <!--                                                <ul class="dropdown-menu">-->
-                                                    <!--                                                    --><?php
-//                                                    foreach ($menu->main_menu[$i]->parent_menu->parent_submenu as $subSub): ?>
-                                                    <!--                                                        <li><a href="#"></a></li>-->
-                                                    <!--                                                    --><?php //endforeach; ?>
-                                                    <!--                                                </ul>-->
-
+                                                    <a href="<?php echo base_url() .
+                                                        $menu->main_menu[$i]->parent_menu[$b]->url ?>"
+                                                       class="dropdown-toggle"
+                                                       data-toggle="dropdown"
+                                                       style="border-bottom: #e6e6e6 solid 1px"><?php echo
+                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?>
+                                                    </a>
 
                                                 <?php endif; endfor; ?>
 
