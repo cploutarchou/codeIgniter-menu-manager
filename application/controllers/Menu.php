@@ -160,7 +160,7 @@ class Menu extends CI_Controller
             if (!empty($data['title'])) {
                 $data['id'] = $this->input->post('menu_id');
                 $data['url'] = $this->input->post('url');
-                $data['class'] = $this->input->post('class');
+//                $data['class'] = $this->input->post('class');
 
                 $item_moved = false;
                 $group_id = $this->input->post('group_id');
@@ -189,7 +189,7 @@ class Menu extends CI_Controller
                         $response['status'] = 1;
                         $d['title'] = $data['title'];
                         $d['url'] = $data['url'];
-                        $d['klass'] = $data['class']; //klass instead of class because of an error in js
+//                        $d['klass'] = $data['class']; //klass instead of class because of an error in js
                         $response['menu'] = $d;
                     }
                 } else {
