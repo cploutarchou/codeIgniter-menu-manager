@@ -34,6 +34,16 @@
             border-radius: 6px 0 6px 6px;
         }
 
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
     </style>
 
 <body>
@@ -44,7 +54,7 @@
 
 <div class="container">
     <div class="row">
-        <?php get_menu('1', 'black'); ?>
+        <?php get_menu('1', ''); ?>
         <!--        --><?php //get_menu('1', ''); ?>
     </div>
 </div>
