@@ -1,9 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <?php $menu = get_main_menu($group_id);
-            //            var_dump($menu);?>
-
+            <?php $menu = get_main_menu($group_id); ?>
             <nav class="navbar <?php if ($style == '' || $style == 'default') {
                 echo 'navbar-default';
             } else if ($style == 'black') {
@@ -29,7 +27,6 @@
                                             href="<?php echo base_url() . $menu->main_menu[$i]->url ?>">
                                         <?php echo
                                         $menu->main_menu[$i]->title ?></a></li>
-
                             <?php else: ?>
                                 <li class="dropdown">
                                     <a href="<?php echo base_url() . $menu->main_menu[$i]->url ?>"
@@ -51,11 +48,20 @@
                                                                                          class="dropdown-toggle"
                                                                                          data-toggle="dropdown"><?php echo
                                                         $menu->main_menu[$i]->parent_menu[$b]->title ?></a>
+                                                    <?php if (isset
+                                                    ($menu->main_menu[$i]->parent_menu[$b]->parent_submenu)): ?>
+                                                        <ul class="dropdown-menu">
+                                                            <?php foreach
+                                                            ($menu->main_menu[$i]->parent_menu[$b]->parent_submenu
+                                                             as $par_sub) : ?>
+                                                                <li><a href="<?php echo
+                                                                    $par_sub->url ?>"><?php echo
+                                                                        $par_sub->title ?>
+                                                                    </a></li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    <?php endif; ?>
 
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">Dropdown Submenu 4.1</a></li>
-
-                                                    </ul>
                                                 </li>
                                             <?php endif; ?>
                                         <?php endfor; ?>
