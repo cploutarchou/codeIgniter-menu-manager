@@ -21,52 +21,53 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <?php for ($i = 0; $i < count($menu->main_menu, true); $i++) { ?>
+                        <?php for ($i = 0;
+                                   $i < count($menu->main_menu, true);
+                                   $i++) { ?>
                             <?php if (count($menu->main_menu[$i]->parent_menu, true) == 0): ?>
                                 <li class=""><a
                                             href="<?php echo base_url() . $menu->main_menu[$i]->url ?>">
                                         <?php echo
                                         $menu->main_menu[$i]->title ?></a></li>
+
                             <?php else: ?>
                                 <li class="dropdown">
                                     <a href="<?php echo base_url() . $menu->main_menu[$i]->url ?>"
                                        class="dropdown-toggle"
                                        data-toggle="dropdown"><?php
-                                        echo $menu->main_menu[$i]->title ?> <b
-                                                class="caret"></b></a>
+                                        echo $menu->main_menu[$i]->title ?> <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
+                                        <?php for ($b = 0;
+                                                   $b < count($menu->main_menu[$i]->parent_menu, true);
+                                                   $b++):
 
-                                        <li class="dropdown dropdown-submenu">
-                                            <?php
+                                            if (!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu)): ?>
+                                                <li><a href="#"><?php echo
+                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?></a></li>
 
-                                            for ($b = 0; $b < count($menu->main_menu[$i]->parent_menu, true); $b++):
-
-                                                if (!isset($menu->main_menu[$i]->parent_menu[$b]->parent_submenu)):?>
-                                                    <a href="#"><?php echo
-                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?></a>
-                                                <?php else: ?>
-
-                                                    <a href="<?php echo base_url() .
+                                            <?php else: ?>
+                                                <li class="dropdown dropdown-submenu"><a href="<?php echo base_url() .
                                                         $menu->main_menu[$i]->parent_menu[$b]->url ?>"
-                                                       class="dropdown-toggle"
-                                                       data-toggle="dropdown"
-                                                       style="border-bottom: #e6e6e6 solid 1px"><?php echo
-                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?>
-                                                    </a>
+                                                                                         class="dropdown-toggle"
+                                                                                         data-toggle="dropdown"><?php echo
+                                                        $menu->main_menu[$i]->parent_menu[$b]->title ?></a>
 
-                                                <?php endif; endfor; ?>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Dropdown Submenu 4.1</a></li>
 
-                                        </li>
-
+                                                    </ul>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
                                     </ul>
-
                                 </li>
-                            <?php endif;
-                        } ?>
-
+                            <?php endif; ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
         </div>
-    </div>
-</div>
+
+
+
+
