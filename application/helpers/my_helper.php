@@ -7,61 +7,51 @@ function get_main_menu($group_id, $attr = '')
 {
     $object = new stdClass();
     $main_menu = [];
-    $parent_menu = [];
-    $parent_submenu = [];
     $ci = &get_instance();
     $ci->data = array();
     $ci->db->select('*');
     $ci->db->from('menu');
     $ci->db->where('group_id', $group_id);
     $query = $ci->db->get();
-    $menu = $query->result();
+    $menu = $query->result();;
 
     for ($i = 0; $i <= count($menu) - 1; $i++) {
         if ($menu[$i]->parent_id == 0) {
             $main_menu[] = $menu[$i];
-
         };
-
     };
+
     for ($x = 0; $x < count($main_menu, true); $x++) {
-        for ($i = 0; $i < count($menu, true); $i++) {
-            if ($menu[$i]->parent_id == $main_menu[$x]->id) {
-                $parent_menu[] = $menu[$i];
+        $parent_menu = [];
+        for ($q = 0; $q < count($menu, true); $q++) {
+            if ($menu[$q]->parent_id == $main_menu[$x]->id) {
+                $parent_menu[] = $menu[$q];
             };
         };
         $main_menu[$x]->parent_menu = $parent_menu;
     };
 
 
+//    var_dump($main_menu);
+
     for ($i = 0; $i < count($main_menu, true); $i++) {
         for ($x = 0; $x < count($main_menu[$i]->parent_menu, true); $x++) {
             for ($e = 0; $e < count($menu, true); $e++) {
                 if ($main_menu[$i]->parent_menu[$x]->id == $menu[$e]->parent_id) {
-                    $f = 0;
-                    $d = $x;
-//                    var_dump($d);
-                    if ($f !== $d) {
-//                        var_dump(true);
-                        $parent_submenu1[] = $menu[$e];
-                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu1;
-                    } else {
-                        $parent_submenu[] = $menu[$e];
-                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu;
-                    }
+                    $parent_submenu[] = $menu[$e];
+                    $uniqueArray = array_unique($parent_submenu, SORT_REGULAR);
+                    $main_menu[$i]->parent_menu[$x]->parent_submenu = $uniqueArray;
                 };
             };
         };
     }
-//    var_dump($main_menu[2]->parent_menu[1]);
-    $object->main_menu = $main_menu;
 
+    $object->main_menu = $main_menu;
     return $object;
 }
 
 function get_menu($group_id, $style = '')
 {
-
     $ci = &get_instance();
     $data = [
         'group_id' => $group_id,
