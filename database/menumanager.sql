@@ -1,10 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 01:47 PM
--- Server version: 10.1.37-MariaDB
+-- Host: localhost:3306
+-- Generation Time: Jan 04, 2020 at 05:02 AM
+-- Server version: 5.5.64-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `menumanager`
+-- Database: `menu_manager`
 --
 
 -- --------------------------------------------------------
@@ -40,37 +41,17 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (1, 0, 'Home', '/', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (63, 62, 'new case', '#', 1, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (62, 0, 't 3', '#', 3, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (8, 0, 'Blog', '/blog', 2, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (9, 0, 'Products', '/products', 3, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (10, 9, 'Sample1', '/products/sample1', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (11, 9, 'Product 2', '/sample1/product2', 2, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (12, 10, 'Test Sub Sub 1', '/products/sample1/product1', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (13, 10, 'Test Sub Sub 2', '/products/sample1/product2', 2, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (14, 11, 'Test Product', '/products2/TestProduct', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (15, 14, 'Test Product', '/products/TestProduct/TestProduct', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (16, 15, 'Test Product', '/products/TestProduct/TestProduct', 1, 1);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (23, 0, 'Author Dashboard', '/author-dashboard', 1, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (24, 0, 'My Profile', '/member/profile', 2, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (25, 0, 'Settings', '/member/settings', 3, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (26, 25, 'Downloads', '/member/downloads', 3, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (27, 0, 'Bookmarks', '/member/bookmarks', 4, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (28, 0, 'Logout', '/logout.php', 5, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (29, 25, 'Profile', '/member/settings/profile', 1, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (30, 25, 'Change Password', '/member/settings/password', 2, 3);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (32, 31, 'Item 1.1', '', 1, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (33, 31, 'Item 1.2', '', 2, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (34, 0, 'Item 2', '', 2, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (35, 34, 'Item 2.1', '', 1, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (36, 35, 'Item 2.1.1', '', 1, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (38, 34, 'Item 2.2', '', 2, 4);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (61, 55, 't 2.3.1', '#', 1, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (55, 54, 't 2.2', '#', 1, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (54, 0, 't 2', '#', 2, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (52, 0, 't 1', '#', 1, 8);
-INSERT INTO menu_manager.menu (id, parent_id, title, url, position, group_id) VALUES (53, 52, 't 1.1', '#', 1, 8);
+INSERT INTO `menu` (`id`, `parent_id`, `title`, `url`, `position`, `group_id`) VALUES
+(1, 0, 'Home', '/', 1, 1),
+(2, 0, 'About', 'controller/about', 2, 1),
+(3, 0, 'Dropdown', 'dropdown/index', 3, 1),
+(4, 3, 'Dropdown 1', 'dropdown/Dropdown1', 1, 1),
+(5, 3, 'Dropdown 2', 'dropdown/Dropdown2', 2, 1),
+(6, 0, 'Contact Us', 'controller/contact-us', 4, 1),
+(7, 3, 'Dropdown 3', 'dropdown/Dropdown3', 3, 1),
+(8, 7, 'Dropdown Submenu 1', 'dropdown/submenu-1', 1, 1),
+(9, 7, 'Dropdown Submenu 2', 'dropdown/submenu-2', 2, 1),
+(10, 3, 'Dropdown 4', 'dropdown/Dropdown-4', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -88,10 +69,7 @@ CREATE TABLE `menu_group` (
 --
 
 INSERT INTO `menu_group` (`id`, `title`) VALUES
-(1, 'Main MenuController'),
-(2, 'Footer MenuController'),
-(3, 'Member MenuController'),
-(4, 'Admin MenuController');
+(1, 'Main Menu');
 
 --
 -- Indexes for dumped tables
@@ -117,13 +95,13 @@ ALTER TABLE `menu_group`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `menu_group`
 --
 ALTER TABLE `menu_group`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

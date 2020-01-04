@@ -55,7 +55,6 @@
 <div class="container">
     <div class="row">
         <?php get_menu('1', ''); ?>
-        <!--        --><?php //get_menu('1', ''); ?>
     </div>
 </div>
 <script>
