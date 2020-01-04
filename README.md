@@ -6,10 +6,11 @@
 * Execute or import code from /database/menumanager.sql file with sample data
 
 **Menu Manager Screenshots**
-Inline-style: 
-* ![alt text]( "Logo Title Text 1")
+
+![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01.png "Logo Title Text 1")
 
 **License**
 
 This project is licensed under the MIT License - see the [LICENSE](Licence) file for details.
 
+https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01.png
