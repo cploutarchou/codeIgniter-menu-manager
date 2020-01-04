@@ -34,26 +34,30 @@ function get_main_menu($group_id, $attr = '')
     };
 
 
+
     for ($i = 0; $i < count($main_menu, true); $i++) {
         for ($x = 0; $x < count($main_menu[$i]->parent_menu, true); $x++) {
+
             for ($e = 0; $e < count($menu, true); $e++) {
                 if ($main_menu[$i]->parent_menu[$x]->id == $menu[$e]->parent_id) {
                     $f = 0;
                     $d = $x;
-//                    var_dump($d);
                     if ($f !== $d) {
-//                        var_dump(true);
+
                         $parent_submenu1[] = $menu[$e];
-                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu1;
+                        $uniqueArray = array_unique($parent_submenu1, SORT_REGULAR);
+                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $uniqueArray;
                     } else {
                         $parent_submenu[] = $menu[$e];
-                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $parent_submenu;
+                        $uniqueArray = array_unique($parent_submenu, SORT_REGULAR);
+                        $main_menu[$i]->parent_menu[$x]->parent_submenu = $uniqueArray;
                     }
+
                 };
             };
         };
     }
-//    var_dump($main_menu[2]->parent_menu[1]);
+    var_dump($main_menu[2]->parent_menu[2]);
     $object->main_menu = $main_menu;
 
     return $object;
