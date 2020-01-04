@@ -15,7 +15,7 @@
  <?php get_menu('1', 'black'); ?> for black navbar
 ```
 **Menu Manager Screenshots**
-
+![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(14).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01.png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(1).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(2).png "Logo Title Text 1")
@@ -30,7 +30,7 @@
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(11).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(12).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(13).png "Logo Title Text 1")
-![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(14).png "Logo Title Text 1")
+
 
 **License**
 
