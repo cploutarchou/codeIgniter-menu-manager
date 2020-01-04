@@ -13,7 +13,7 @@
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(3).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(4).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(5).png "Logo Title Text 1")
-![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%206).png "Logo Title Text 1")
+![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(6).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(7).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(8).png "Logo Title Text 1")
 ![alt text](https://github.com/cploutarchou/codeIgniter-menu-manager/blob/master/assets/forReadme/screenshot-ci-menu-manager.christosploutarchou.com-2020.01%20(9).png "Logo Title Text 1")
