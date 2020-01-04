@@ -1,13 +1,13 @@
 # Codeigniter With Menu Manager Pre-installed
 
-# Work in process......................
-
 **Installation Steps:**
 * Upload project on server
 * Rename database_conf.php file to database.php
 * Execute or import code from /database/menumanager.sql file with sample data
 
-
+**Menu Manager Screenshots**
+Inline-style: 
+* ![alt text]( "Logo Title Text 1")
 
 **License**
 
