@@ -1,4 +1,4 @@
-A Simple PHP Image Gallery System with comments functionality
+A Simple PHP Image Gallery System with comment system
 ---
 * Simple Photo Gallery is developed using PHP, CSS, Bootstrap, and JavaScript.
 * Talking about the project, it contains a admin side where a admin can upload photos easily.
