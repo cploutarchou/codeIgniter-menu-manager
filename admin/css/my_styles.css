@@ -1,0 +1,66 @@
+#spinner {
+    display: none;
+}
+
+#spinner {
+    background: #fff;
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    filter: alpha(opacity=100);
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 999999999;
+}
+
+.spinner-img {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 35%;
+    width: 100%;
+}
+
+/*Photo Library Modal Code*/
+
+.modal-dialog {
+    width: 90% !important;
+}
+
+.modal-body {
+    position: relative;
+    padding: 20px;
+    overflow: auto !important;
+    /*overflow-y: auto !important;*/
+    -webkit-overflow-scrolling: auto !important;
+    -ms-overflow-y: auto !important;
+    height: 500px !important;
+    min-height: 300px !important;
+
+}
+
+.modal_thumbnails {
+    width: 150px;
+    height: 100px !important;
+}
+
+#set_user_image {
+    margin: 10px;
+}
+
+#modal_sidebar {
+    position: fixed !important;
+
+}
+
+.modal-backdrop.in {
+    opacity: 0 !important;
+}
+
+
+.modal-open {
+    overflow: hidden;
+}
+
