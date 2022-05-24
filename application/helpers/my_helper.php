@@ -12,6 +12,7 @@ function get_main_menu($group_id, $attr = '')
     $ci->db->select('*');
     $ci->db->from('menu');
     $ci->db->where('group_id', $group_id);
+    $ci->db->order_by('position');
     $query = $ci->db->get();
     $menu = $query->result();;
 
